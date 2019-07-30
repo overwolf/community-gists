@@ -12,4 +12,4 @@ You can upload new gists and browse other gists that uploaded by the Overwolf de
 
 ## gists Reference
 
-* center app window to the middle of the screen, only on the first run. [Link]().
+* center app window to the middle of the screen, only on the first run. [Link](center-window-on-first-load.md).
