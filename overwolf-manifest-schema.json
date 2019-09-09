@@ -16,7 +16,7 @@
       "enum": [
         1
       ],
-	  "additionalProperties": false,
+	  "additionalProperties": false
     },
     "type": {
       "type": "string",
@@ -26,7 +26,7 @@
         "Skin",
         "GameEventProvider"
       ],
-	  "additionalProperties": false,
+	  "additionalProperties": false
     },
     "meta": {
       "description": "The extension metadata",
@@ -121,7 +121,7 @@
       "type": "object",
 	  "required": [
 		"start_window",
-		"windows",
+		"windows"
 	  ],
   	  "additionalProperties": false,
       "properties": {
