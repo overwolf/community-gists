@@ -15,7 +15,8 @@
       "description": "Targets the manifest version you are working on. Currently there is only one version, therefore this value is always 1",
       "enum": [
         1
-      ]
+      ],
+	  "additionalProperties": false,
     },
     "type": {
       "type": "string",
@@ -24,7 +25,8 @@
         "WebApp",
         "Skin",
         "GameEventProvider"
-      ]
+      ],
+	  "additionalProperties": false,
     },
     "meta": {
       "description": "The extension metadata",
@@ -117,6 +119,11 @@
     "data": {
       "description": "Extension data",
       "type": "object",
+	  "required": [
+		"start_window",
+		"windows",
+	  ],
+  	  "additionalProperties": false,
       "properties": {
         "windows": {
           "description": "A map from window names to window settings.",
