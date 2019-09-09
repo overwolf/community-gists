@@ -54,6 +54,10 @@
           "description": "Minimum version of the Overwolf Client with which the app is compatible.",
           "$ref": "#/definitions/version_string"
         },
+		"minimum-gep-version": {
+          "description": ". Minimum version of the Overwolf Game Events Provider with which the app is compatible.",
+          "$ref": "#/definitions/version_string"
+        },
         "description": {
           "description": "The description of your app on the Appstore tile",
           "type": "string",
@@ -80,10 +84,14 @@
           "description": "A relative path from the app folder to the desktop shortcut icon's ico file..",
           "type": "string"
         },
+		"window_icon": {
+          "description": "A relative path from the app folder to a png file. This is the window task bar icon and the window header. The icon dimensions should be 256x256 pixels.",
+          "type": "string"
+        },
         "splash_image": {
           "description": "A relative path from the app folder to the splash image icon's png file. The image size should be 256x256px. If a this image is missing, Overwolf will use the `icon` image as a splash image ",
           "type": "string"
-        }
+        }	
       },
       "additionalProperties": false
     },
@@ -94,7 +102,8 @@
       "items": {
         "type": "string",
         "pattern": "(Camera|Microphone|Logging|Extensions|Streaming|DesktopStreaming|Profile|Clipboard|Hotkeys|Media|GameInfo|GameControl|FileSystem|LogitechLed|LogitechArx|OwWebview)"
-      }
+      },
+	  "additionalProperties": false
     },
     "dependencies": {
       "description": "An array of unique IDs of other extensions and services that this extension depends on.",
@@ -134,6 +143,10 @@
           "description": "Causes links in the app to be opened using the user's default browser or Overwolf's browser. Takes 'user' and 'overwolf' (case insensitive).",
           "type": "string",
           "pattern": "(user|overwolf)"
+        },
+		"enable_osr_acceleration": {
+          "description": "Enable OSR/GPU acceleration if supported by this machine. Note that this flag is in beta and it may not function as expected in some machines. See also the optimize_accelerate_rendering flag.",
+          "type": "boolean"
         },
         "plugins": {
           "description": "A list of file references to plugins that are provided with the web app. The references should be relative paths from the app folder.",
@@ -249,7 +262,8 @@
           "description": "Defines the height in pixels.",
           "type": "integer"
         }
-      }
+      },
+	  "additionalProperties": false
     },
     "point": {
       "type": "object",
@@ -365,8 +379,22 @@
           "description": "Allows access to local files that are not located in your app's (extension) folder. Default value = false",
           "type": "boolean"
         },
-
-
+		"is_alt_f4_blocked": {
+          "description": "Blocks the user from closing the window by using Alt+F4. You can register to the overwolf.windows.OnAltF4Blocked event to be noticed when a block was triggered",
+          "type": "boolean"
+        },
+		"dev_tools_window_style": {
+          "description": "Opens developer tools in dedicated window.",
+          "type": "boolean"
+        },
+		"debug_url": {
+          "description": "For local-server debugging (like react apps). You can use this field to set the localhost:port URL. You must have a local web server installed on your machine. Valid only when loading unpacked extensions. Valid only with localhost or 127.0.0.1",
+          "type": "string"
+        },
+		"optimize_accelerate_rendering": {
+          "description": "Valid only for transparent windows. Valid only if enable_osr_acceleration is on",
+          "type": "boolean"
+        },
         "show_only_on_stream": {
           "description": "Indicates whether this window is visible only in streams (not visible to the streamer), overriding any other setting.",
           "type": "boolean"
