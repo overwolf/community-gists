@@ -150,7 +150,7 @@
           "type": "string",
           "pattern": "(user|overwolf)"
         },
-		"enable_osr_acceleration": {
+	"enable_osr_acceleration": {
           "description": "Enable OSR/GPU acceleration if supported by this machine. Note that this flag is in beta and it may not function as expected in some machines. See also the optimize_accelerate_rendering flag.",
           "type": "boolean"
         },
@@ -338,17 +338,14 @@
           "description": "Indicates whether the window will grab the focus automatically when it opens, or leave the focus untouched. Default value = true. Only relevant when in the desktop – for in-game focus behavior, use grab_keyboard_focus.",
           "type": "boolean"
         },
-
         "popup_blocker": {
           "description": "Prevents new browser windows being opened automatically using script. Default value = false",
           "type": "boolean"
         },
-
         "mute": {
           "description": "Mute sounds in window",
           "type": "boolean"
         },
-
         "show_minimize": {
           "description": "Indicates whether to show the window minimize button. Only relevant when not in transparent mode.",
           "type": "boolean"
@@ -365,22 +362,18 @@
           "description": "Indicates whether this window should always be included in recordings, overriding any other setting.",
           "type": "boolean"
         },
-
         "keep_window_location": {
           "description": "Window location won't be changed when game focus is changed",
           "type": "boolean"
         },
-
         "show_maximize": {
           "description": "Enables window maximize button. Relevant only for the standard Overwolf window (`transparent`: false) . Default value = false",
           "type": "boolean"
         },
-
         "disable_blur": {
           "description": "Causes the app's window to never lose focus, so the window.onblur event is never triggered. Default value = false",
           "type": "boolean"
         },
-
         "allow_local_file_access": {
           "description": "Allows access to local files that are not located in your app's (extension) folder. Default value = false",
           "type": "boolean"
@@ -397,7 +390,7 @@
           "description": "For local-server debugging (like react apps). You can use this field to set the localhost:port URL. You must have a local web server installed on your machine. Valid only when loading unpacked extensions. Valid only with localhost or 127.0.0.1",
           "type": "string"
         },
-		"optimize_accelerate_rendering": {
+	"optimize_accelerate_rendering": {
           "description": "Valid only for transparent windows. Valid only if enable_osr_acceleration is on",
           "type": "boolean"
         },
@@ -452,7 +445,11 @@
         "block_top_window_navigation": {
           "description": "Refrain from page-take-over by links",
           "type": "boolean"
-        }
+        },
+	"override_on_update": {
+          "description": "Indicates whether the window’s locally saved data should be overridden when the window’s size/location/opacity changes after a version update.",
+          "type": "boolean"
+        }      
       },
       "additionalProperties": false
     },
