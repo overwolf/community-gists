@@ -56,8 +56,12 @@
           "description": "Minimum version of the Overwolf Client with which the app is compatible.",
           "$ref": "#/definitions/version_string"
         },
-		"minimum-gep-version": {
+	"minimum-gep-version": {
           "description": ". Minimum version of the Overwolf Game Events Provider with which the app is compatible.",
+          "$ref": "#/definitions/version_string"
+        },
+	"minimum-gs-version": {
+          "description": ". Minimum version of the Overwolf Game Summary built-in app with which the app is compatible.",
           "$ref": "#/definitions/version_string"
         },
         "description": {
@@ -103,7 +107,7 @@
       "uniqueItems": true,
       "items": {
         "type": "string",
-        "pattern": "(Camera|Microphone|Logging|Extensions|Streaming|DesktopStreaming|Profile|Clipboard|Hotkeys|Media|GameInfo|GameControl|FileSystem|LogitechLed|LogitechArx|OwWebview)"
+        "pattern": "(Camera|Microphone|Logging|Extensions|Streaming|DesktopStreaming|Profile|Clipboard|Hotkeys|Media|GameInfo|GameControl|FileSystem|LogitechLed|LogitechArx|OwWebview|Tray)"
       },
 	  "additionalProperties": false
     },
