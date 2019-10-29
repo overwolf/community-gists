@@ -15,5 +15,6 @@ You can upload new gists and browse other gists that uploaded by the Overwolf de
 * center app window to the middle of the screen, only on the first run. [Link](center-window-on-first-load.md).
 * validate your manifest using this schema. [Link](overwolf-manifest-schema.json).
 * A gulp file to create the release package starting from the React OW boilerplate.  
-  This creates two folders, one for build\store files, one with OPK and a zip already ready to send to Overwolf to publication. [Link](gulpfile.js). 
+  This creates two folders, one for build\store files, one with OPK and a zip already ready to send to Overwolf to publication. [Link](gulpfile.js).  
+  Credit to:Francesco Bramato.  
 
