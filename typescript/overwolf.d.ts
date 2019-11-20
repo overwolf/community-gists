@@ -4431,6 +4431,7 @@ declare namespace overwolf.utils {
     OSBuild?: string;
     OSReleaseId?: string;
     PhysicalCPUCount?: number;
+    VidEncSupport?: boolean;
   }
 
   interface OpenStoreParams {
