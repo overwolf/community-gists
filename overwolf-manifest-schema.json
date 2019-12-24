@@ -350,6 +350,10 @@
           "description": "Mute sounds in window",
           "type": "boolean"
         },
+        "mute_excluded_hosts": {
+          "description": "Excludes hosts list so a stream from these hosts origins will not get muted even if the",
+          "type": "boolean"
+        },
         "show_minimize": {
           "description": "Indicates whether to show the window minimize button. Only relevant when not in transparent mode.",
           "type": "boolean"
