@@ -505,19 +505,19 @@
       "properties": {
         "windows": {
           "description": "The list of windows for which to apply this content script.",
-          "type": "string"
+          "type": "array"
         },
         "matches": {
           "description": "The list of urls for which to apply this content script.",
-          "type": "string"
+          "type": "array"
         },
         "css": {
           "description": "The list of css files to be applied in this content script..",
-          "type": "string"
+          "type": "array"
         },
         "js": {
           "description": "The list of js files to be applied in this content script.",
-          "type": "string"
+          "type": "array"
         }
       },
       "additionalProperties": false
