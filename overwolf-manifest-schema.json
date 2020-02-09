@@ -496,6 +496,10 @@
         "passthrough": {
           "description": "Defines the behavior of the hotkey.",
           "type": "boolean"
+        },
+	"hold": {
+          "description": "Defines whether this hotkey is meant to invoke an action while being held.",
+          "type": "boolean"
         }
       },
       "additionalProperties": false
