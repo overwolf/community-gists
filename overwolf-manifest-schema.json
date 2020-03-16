@@ -107,7 +107,7 @@
       "uniqueItems": true,
       "items": {
         "type": "string",
-        "pattern": "(VideoCaptureSettings|Web|Camera|Microphone|Logging|Extensions|Streaming|DesktopStreaming|Profile|Clipboard|Hotkeys|Media|GameInfo|GameControl|FileSystem|LogitechLed|LogitechArx|OwWebview|Tray)"
+        "pattern": "(VideoCaptureSettings|Web|Camera|Microphone|Logging|Extensions|Streaming|DesktopStreaming|Profile|Clipboard|Hotkeys|Media|GameInfo|GameControl|FileSystem|LogitechLed|LogitechArx|Tray)"
       },
 	  "additionalProperties": false
     },
@@ -537,7 +537,7 @@
           ]
         },
         "tracked": {
-          "description": "Launch App when gameid is detected (event when not injected)",
+          "description": "Launch App when gameid is detected (even when not injected)",
           "type": "boolean"
         },
         "event_data": {
