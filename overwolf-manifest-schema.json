@@ -402,6 +402,10 @@
           "description": "Valid only for transparent windows. Valid only if enable_osr_acceleration is on",
           "type": "boolean"
         },
+	"disable_auto_dpi_sizing": {
+          "description": "Disable the DPI Aware behavior of native windows",
+          "type": "boolean"
+        },
         "show_only_on_stream": {
           "description": "Indicates whether this window is visible only in streams (not visible to the streamer), overriding any other setting.",
           "type": "boolean"
