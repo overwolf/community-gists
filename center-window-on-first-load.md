@@ -1,6 +1,9 @@
-## This script is centering a window upon first opening.
 
 ```js
+/**
+ * This script is centering a window upon first opening.
+ * @public
+ */
 var localStorageString = window.localStorage.getItem('localStorage');
 var localStorage = localStorageString ? JSON.parse(localStorageString) : {};
 
