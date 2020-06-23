@@ -9,6 +9,8 @@ You can upload new gists and browse other gists that uploaded by the Overwolf de
 
 * **center-window-on-first-load.md**  
   center app window to the middle of the screen, only on the first run.
+* **getInGameResolution**
+* **move-window-to-position**
 * **overwolf-manifest-schema.json**  
   validate your manifest using this schema.
 * **gulpfile.js**  
