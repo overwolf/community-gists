@@ -537,7 +537,7 @@
           "description": "The type name of the event.",
           "type": "string",
           "enum": [
-            "GameLaunch","AllGamesLaunch"
+            "GameLaunch","AllGamesLaunch","LaunchWithOverwolf"
           ]
         },
         "tracked": {
