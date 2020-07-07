@@ -1,0 +1,292 @@
+[
+ {
+   "side": "atk",
+   "operator_name": "Sledge",
+   "operator_id": 768
+ },
+ {
+   "side": "atk",
+   "operator_name": "Thatcher",
+   "operator_id": 1024
+ },
+ {
+   "side": "atk",
+   "operator_name": "Ash",
+   "operator_id": 513
+ },
+ {
+   "side": "atk",
+   "operator_name": "Thermite",
+   "operator_id": 1025
+ },
+ {
+   "side": "atk",
+   "operator_name": "Twitch",
+   "operator_id": 770
+ },
+ {
+   "side": "atk",
+   "operator_name": "Montagne",
+   "operator_id": 1026
+ },
+ {
+   "side": "atk",
+   "operator_name": "Glaz",
+   "operator_id": 259
+ },
+ {
+   "side": "atk",
+   "operator_name": "Fuze",
+   "operator_id": 515
+ },
+ {
+   "side": "atk",
+   "operator_name": "Blitz",
+   "operator_id": 260
+ },
+ {
+   "side": "atk",
+   "operator_name": "IQ",
+   "operator_id": 516
+ },
+ {
+   "side": "atk",
+   "operator_name": "Buck",
+   "operator_id": 216
+ },
+ {
+   "side": "atk",
+   "operator_name": "Blackbeard",
+   "operator_id": 262
+ },
+ {
+   "side": "atk",
+   "operator_name": "Capitao",
+   "operator_id": 263
+ },
+ {
+   "side": "atk",
+   "operator_name": "Hibana",
+   "operator_id": 264
+ },
+ {
+   "side": "atk",
+   "operator_name": "Jackal",
+   "operator_id": 265
+ },
+ {
+   "side": "atk",
+   "operator_name": "Ying",
+   "operator_id": 266
+ },
+ {
+   "side": "atk",
+   "operator_name": "Zofia",
+   "operator_id": 523
+ },
+ {
+   "side": "atk",
+   "operator_name": "Dokkaebi",
+   "operator_id": 268
+ },
+ {
+   "side": "atk",
+   "operator_name": "Lion",
+   "operator_id": 525
+ },
+ {
+   "side": "atk",
+   "operator_name": "Finka",
+   "operator_id": 781
+ },
+ {
+   "side": "atk",
+   "operator_name": "Maverick",
+   "operator_id": 271
+ },
+ {
+   "side": "atk",
+   "operator_name": "Nomad",
+   "operator_id": 272
+ },
+ {
+   "side": "atk",
+   "operator_name": "Gridlock",
+   "operator_id": 529
+ },
+ {
+   "side": "atk",
+   "operator_name": "Nokk",
+   "operator_id": 274
+ },
+ {
+   "side": "atk",
+   "operator_name": "Amaru",
+   "operator_id": 277
+ },
+ {
+   "side": "atk",
+   "operator_name": "Kali",
+   "operator_id": 278
+ },
+ {
+   "side": "atk",
+   "operator_name": "Iana",
+   "operator_id": 280
+ },
+ {
+   "side": "atk",
+   "operator_name": "Ace",
+   "operator_id": 790
+ },
+ {
+   "side": "atk",
+   "operator_name": "Recruit",
+   "operator_id": 1
+ },
+ {
+   "side": "def",
+   "operator_name": "Smoke",
+   "operator_id": 256
+ },
+ {
+   "side": "def",
+   "operator_name": "Mute",
+   "operator_id": 512
+ },
+ {
+   "side": "def",
+   "operator_name": "Castle",
+   "operator_id": 257
+ },
+ {
+   "side": "def",
+   "operator_name": "Pulse",
+   "operator_id": 769
+ },
+ {
+   "side": "def",
+   "operator_name": "Doc",
+   "operator_id": 258
+ },
+ {
+   "side": "def",
+   "operator_name": "Rook",
+   "operator_id": 514
+ },
+ {
+   "side": "def",
+   "operator_name": "Kapkan",
+   "operator_id": 771
+ },
+ {
+   "side": "def",
+   "operator_name": "Tachanka",
+   "operator_id": 1027
+ },
+ {
+   "side": "def",
+   "operator_name": "Jager",
+   "operator_id": 772
+ },
+ {
+   "side": "def",
+   "operator_name": "Bandit",
+   "operator_id": 1028
+ },
+ {
+   "side": "def",
+   "operator_name": "Frost",
+   "operator_id": 517
+ },
+ {
+   "side": "def",
+   "operator_name": "Valkyrie",
+   "operator_id": 518
+ },
+ {
+   "side": "def",
+   "operator_name": "Caveira",
+   "operator_id": 519
+ },
+ {
+   "side": "def",
+   "operator_name": "Echo",
+   "operator_id": 520
+ },
+ {
+   "side": "def",
+   "operator_name": "Mira",
+   "operator_id": 521
+ },
+ {
+   "side": "def",
+   "operator_name": "Lesion",
+   "operator_id": 522
+ },
+ {
+   "side": "def",
+   "operator_name": "Ela",
+   "operator_id": 267
+ },
+ {
+   "side": "def",
+   "operator_name": "Vigil",
+   "operator_id": 524
+ },
+ {
+   "side": "def",
+   "operator_name": "Maestro",
+   "operator_id": 270
+ },
+ {
+   "side": "def",
+   "operator_name": "Alibi",
+   "operator_id": 526
+ },
+ {
+   "side": "def",
+   "operator_name": "Clash",
+   "operator_id": 527
+ },
+ {
+   "side": "def",
+   "operator_name": "Kaid",
+   "operator_id": 528
+ },
+ {
+   "side": "def",
+   "operator_name": "Mozzie",
+   "operator_id": 273
+ },
+ {
+   "side": "def",
+   "operator_name": "Warden",
+   "operator_id": 275
+ },
+ {
+   "side": "def",
+   "operator_name": "Goyo",
+   "operator_id": 276
+ },
+ {
+   "side": "def",
+   "operator_name": "Wamai",
+   "operator_id": 534
+ },
+ {
+   "side": "def",
+   "operator_name": "Oryx",
+   "operator_id": 279
+ },
+ {
+   "side": "def",
+   "operator_name": "Melusi",
+   "operator_id": 281
+ },
+ {
+   "side": "def",
+   "operator_name": "Recruit",
+   "operator_id": 1
+ }
+]
