@@ -2,291 +2,349 @@
  {
    "side": "atk",
    "operator_name": "Sledge",
-   "operator_id": 768
+   "overwolf_id": 768,
+   "ubisoft_id": "4:1"
  },
  {
    "side": "atk",
    "operator_name": "Thatcher",
-   "operator_id": 1024
+   "overwolf_id": 1024,
+   "ubisoft_id": "5:1"
  },
  {
    "side": "atk",
    "operator_name": "Ash",
-   "operator_id": 513
+   "overwolf_id": 513,
+   "ubisoft_id": "3:2"
  },
  {
    "side": "atk",
    "operator_name": "Thermite",
-   "operator_id": 1025
+   "overwolf_id": 1025,
+   "ubisoft_id": "5:2"
  },
  {
    "side": "atk",
    "operator_name": "Twitch",
-   "operator_id": 770
+   "overwolf_id": 770,
+   "ubisoft_id": "4:3"
  },
  {
    "side": "atk",
    "operator_name": "Montagne",
-   "operator_id": 1026
+   "overwolf_id": 1026,
+   "ubisoft_id": "5:3"
  },
  {
    "side": "atk",
    "operator_name": "Glaz",
-   "operator_id": 259
+   "overwolf_id": 259,
+   "ubisoft_id": "2:4"
  },
  {
    "side": "atk",
    "operator_name": "Fuze",
-   "operator_id": 515
+   "overwolf_id": 515,
+   "ubisoft_id": "3:4"
  },
  {
    "side": "atk",
    "operator_name": "Blitz",
-   "operator_id": 260
+   "overwolf_id": 260,
+   "ubisoft_id": "2:5"
  },
  {
    "side": "atk",
    "operator_name": "IQ",
-   "operator_id": 516
+   "overwolf_id": 516,
+   "ubisoft_id": "3:5"
  },
  {
    "side": "atk",
    "operator_name": "Buck",
-   "operator_id": 216
+   "overwolf_id": 216,
+   "ubisoft_id": "2:6"
  },
  {
    "side": "atk",
    "operator_name": "Blackbeard",
-   "operator_id": 262
+   "overwolf_id": 262,
+   "ubisoft_id": "2:7"
  },
  {
    "side": "atk",
    "operator_name": "Capitao",
-   "operator_id": 263
+   "overwolf_id": 263,
+   "ubisoft_id": "2:8"
  },
  {
    "side": "atk",
    "operator_name": "Hibana",
-   "operator_id": 264
+   "overwolf_id": 264,
+   "ubisoft_id": "2:9"
  },
  {
    "side": "atk",
    "operator_name": "Jackal",
-   "operator_id": 265
+   "overwolf_id": 265,
+   "ubisoft_id": "2:A"
  },
  {
    "side": "atk",
    "operator_name": "Ying",
-   "operator_id": 266
+   "overwolf_id": 266,
+   "ubisoft_id": "2:B"
  },
  {
    "side": "atk",
    "operator_name": "Zofia",
-   "operator_id": 523
+   "overwolf_id": 523,
+   "ubisoft_id": "3:C"
  },
  {
    "side": "atk",
    "operator_name": "Dokkaebi",
-   "operator_id": 268
+   "overwolf_id": 268,
+   "ubisoft_id": "2:D"
  },
  {
    "side": "atk",
    "operator_name": "Lion",
-   "operator_id": 525
+   "overwolf_id": 525,
+   "ubisoft_id": "3:E"
  },
  {
    "side": "atk",
    "operator_name": "Finka",
-   "operator_id": 781
+   "overwolf_id": 781,
+   "ubisoft_id": "4:E"
  },
  {
    "side": "atk",
    "operator_name": "Maverick",
-   "operator_id": 271
+   "overwolf_id": 271,
+   "ubisoft_id": "2:10"
  },
  {
    "side": "atk",
    "operator_name": "Nomad",
-   "operator_id": 272
+   "overwolf_id": 272,
+   "ubisoft_id": "2:11"
  },
  {
    "side": "atk",
    "operator_name": "Gridlock",
-   "operator_id": 529
+   "overwolf_id": 529,
+   "ubisoft_id": "3:12"
  },
  {
    "side": "atk",
    "operator_name": "Nokk",
-   "operator_id": 274
+   "overwolf_id": 274,
+   "ubisoft_id": "2:13"
  },
  {
    "side": "atk",
    "operator_name": "Amaru",
-   "operator_id": 277
+   "overwolf_id": 277,
+   "ubisoft_id": "2:16"
  },
  {
    "side": "atk",
    "operator_name": "Kali",
-   "operator_id": 278
+   "overwolf_id": 278,
+   "ubisoft_id": "2:17"
  },
  {
    "side": "atk",
    "operator_name": "Iana",
-   "operator_id": 280
+   "overwolf_id": 280,
+   "ubisoft_id": "2:19"
  },
  {
    "side": "atk",
    "operator_name": "Ace",
-   "operator_id": 790
+   "overwolf_id": 790,
+   "ubisoft_id": "4:17"
  },
  {
    "side": "atk",
    "operator_name": "Recruit",
-   "operator_id": 1
+   "overwolf_id": 1,
+   "ubisoft_id": "recruit"
  },
  {
    "side": "def",
    "operator_name": "Smoke",
-   "operator_id": 256
+   "overwolf_id": 256,
+   "ubisoft_id": "2:1"
  },
  {
    "side": "def",
    "operator_name": "Mute",
-   "operator_id": 512
+   "overwolf_id": 512,
+   "ubisoft_id": "3:1"
  },
  {
    "side": "def",
    "operator_name": "Castle",
-   "operator_id": 257
+   "overwolf_id": 257,
+   "ubisoft_id": "2:2"
  },
  {
    "side": "def",
    "operator_name": "Pulse",
-   "operator_id": 769
+   "overwolf_id": 769,
+   "ubisoft_id": "4:2"
  },
  {
    "side": "def",
    "operator_name": "Doc",
-   "operator_id": 258
+   "overwolf_id": 258,
+   "ubisoft_id": "2:3"
  },
  {
    "side": "def",
    "operator_name": "Rook",
-   "operator_id": 514
+   "overwolf_id": 514,
+   "ubisoft_id": "3:3"
  },
  {
    "side": "def",
    "operator_name": "Kapkan",
-   "operator_id": 771
+   "overwolf_id": 771,
+   "ubisoft_id": "4:4"
  },
  {
    "side": "def",
    "operator_name": "Tachanka",
-   "operator_id": 1027
+   "overwolf_id": 1027,
+   "ubisoft_id": "5:4"
  },
  {
    "side": "def",
    "operator_name": "Jager",
-   "operator_id": 772
+   "overwolf_id": 772,
+   "ubisoft_id": "4:5"
  },
  {
    "side": "def",
    "operator_name": "Bandit",
-   "operator_id": 1028
+   "overwolf_id": 1028,
+   "ubisoft_id": "5:5"
  },
  {
    "side": "def",
    "operator_name": "Frost",
-   "operator_id": 517
+   "overwolf_id": 517,
+   "ubisoft_id": "3:6"
  },
  {
    "side": "def",
    "operator_name": "Valkyrie",
-   "operator_id": 518
+   "overwolf_id": 518,
+   "ubisoft_id": "3:7"
  },
  {
    "side": "def",
    "operator_name": "Caveira",
-   "operator_id": 519
+   "overwolf_id": 519,
+   "ubisoft_id": "3:8"
  },
  {
    "side": "def",
    "operator_name": "Echo",
-   "operator_id": 520
+   "overwolf_id": 520,
+   "ubisoft_id": "3:9"
  },
  {
    "side": "def",
    "operator_name": "Mira",
-   "operator_id": 521
+   "overwolf_id": 521,
+   "ubisoft_id": "3:A"
  },
  {
    "side": "def",
    "operator_name": "Lesion",
-   "operator_id": 522
+   "overwolf_id": 522,
+   "ubisoft_id": "3:B"
  },
  {
    "side": "def",
    "operator_name": "Ela",
-   "operator_id": 267
+   "overwolf_id": 267,
+   "ubisoft_id": "2:C"
  },
  {
    "side": "def",
    "operator_name": "Vigil",
-   "operator_id": 524
+   "overwolf_id": 524,
+   "ubisoft_id": "3:D"
  },
  {
    "side": "def",
    "operator_name": "Maestro",
-   "operator_id": 270
+   "overwolf_id": 270,
+   "ubisoft_id": "2:F"
  },
  {
    "side": "def",
    "operator_name": "Alibi",
-   "operator_id": 526
+   "overwolf_id": 526,
+   "ubisoft_id": "3:F"
  },
  {
    "side": "def",
    "operator_name": "Clash",
-   "operator_id": 527
+   "overwolf_id": 527,
+   "ubisoft_id": "3:10"
  },
  {
    "side": "def",
    "operator_name": "Kaid",
-   "operator_id": 528
+   "overwolf_id": 528,
+   "ubisoft_id": "3:11"
  },
  {
    "side": "def",
    "operator_name": "Mozzie",
-   "operator_id": 273
+   "overwolf_id": 273,
+   "ubisoft_id": "2:12"
  },
  {
    "side": "def",
    "operator_name": "Warden",
-   "operator_id": 275
+   "overwolf_id": 275,
+   "ubisoft_id": "2:14"
  },
  {
    "side": "def",
    "operator_name": "Goyo",
-   "operator_id": 276
+   "overwolf_id": 276,
+   "ubisoft_id": "2:15"
  },
  {
    "side": "def",
    "operator_name": "Wamai",
-   "operator_id": 534
+   "overwolf_id": 534,
+   "ubisoft_id": "3:17"
  },
  {
    "side": "def",
    "operator_name": "Oryx",
-   "operator_id": 279
+   "overwolf_id": 279,
+   "ubisoft_id": "2:18"
  },
  {
    "side": "def",
    "operator_name": "Melusi",
-   "operator_id": 281
+   "overwolf_id": 281,
+   "ubisoft_id": "2:1A"
  },
  {
    "side": "def",
    "operator_name": "Recruit",
-   "operator_id": 1
+   "overwolf_id": 1,
+   "ubisoft_id": "recruit"
  }
 ]
