@@ -1,3 +1,4 @@
+```js
 /**
  * get monitor of the window
  * @returns {Promise<*>}
@@ -45,3 +46,4 @@ async function getWindowMonitor(name) {
         }
     });
 }
+```
