@@ -1,0 +1,23 @@
+{
+  "features":[
+	{
+      "name":"enable-dev-tools",
+      "enable": true
+    },
+    {
+      "name":"gep-validation",
+      "phase":20,
+      "enable": true
+    },
+    {
+      "name":"track-extension-validation",
+      "phase":20,
+      "sid": "sadas",
+      "enable": false
+    },
+    {
+      "name":"track-extension-validation",
+      "enable": true
+    }
+  ]
+}
