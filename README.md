@@ -25,7 +25,8 @@ You can upload new gists and browse other gists that uploaded by the Overwolf de
   C++ implementation for custom libowgameevents.dll game integration
 * **common-services**
   Collection of js functions wrapping Overwolf API as Promises  
-  
+* **overwolf-mock**
+  Creates a overwolf window object outside the overwolf application, this code helps to create and test applications that use the window.overwolf object in a browser without causing development time errors.   
 ## How to add a gist
 
 1. Just create or upload new file to the main fodler. The format can be MD (markdown), JS or other.
