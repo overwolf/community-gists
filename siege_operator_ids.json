@@ -168,6 +168,12 @@
    "ubisoft_id": "4:17"
  },
  {
+   "side": "atk", 
+   "operator_name": "Zero",
+   "overwolf_id": 26,
+   "ubisoft_id": "1:1B"
+ },
+ {
    "side": "atk",
    "operator_name": "Recruit",
    "overwolf_id": 1,
