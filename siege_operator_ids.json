@@ -349,6 +349,12 @@
  },
  {
    "side": "def",
+   "operator_name": "Aruni",
+   "overwolf_id": 1046,
+   "ubisoft_id": "aruni"
+ },
+ {
+   "side": "def",
    "operator_name": "Recruit",
    "overwolf_id": 1,
    "ubisoft_id": "recruit"
