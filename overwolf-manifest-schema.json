@@ -406,6 +406,10 @@
           "description": "Disable the DPI Aware behavior of native windows",
           "type": "boolean"
         },
+	"restrict_to_game_bounds": {
+          "description": "A window will always stay inside the game window while dragging",
+          "type": "boolean"
+        },
         "show_only_on_stream": {
           "description": "Indicates whether this window is visible only in streams (not visible to the streamer), overriding any other setting.",
           "type": "boolean"
