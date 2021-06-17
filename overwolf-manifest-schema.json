@@ -350,6 +350,10 @@
           "description": "Mute sounds in window",
           "type": "boolean"
         },
+	"disable_hardware_acceleration": {
+          "description": "disable GPU hardware accelerationw for native window",
+          "type": "boolean"
+        },
         "mute_excluded_hosts": {
           "description": "Excludes hosts list so a stream from these hosts origins will not get muted even if the",
           "type": "array"
