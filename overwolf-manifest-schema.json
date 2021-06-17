@@ -364,6 +364,10 @@
         },
         "clickthrough": {
           "description": "Indicates whether the window will not receive clicks in-game, instead, the clicks will be passed on to the game.",
+          "type": "string"
+        },
+	"style": {
+          "description": "Mouse and keyboard input will pass to the window AND to the game (no input blocking)",
           "type": "boolean"
         },
         "disable_rightclick": {
