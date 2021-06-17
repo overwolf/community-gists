@@ -355,6 +355,12 @@
  },
  {
    "side": "def",
+   "operator_name": "Thunderbird",
+   "overwolf_id": 27,
+   "ubisoft_id": "thunderbird"
+ },
+ {
+   "side": "def",
    "operator_name": "Recruit",
    "overwolf_id": 1,
    "ubisoft_id": "recruit"
