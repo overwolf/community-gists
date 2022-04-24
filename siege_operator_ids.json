@@ -379,6 +379,12 @@
  },
  {
    "side": "def",
+   "operator_name": "Azami",
+   "overwolf_id": 791,
+   "ubisoft_id": "unknown"
+ },
+ {
+   "side": "def",
    "operator_name": "Recruit",
    "overwolf_id": 1,
    "ubisoft_id": "recruit"
