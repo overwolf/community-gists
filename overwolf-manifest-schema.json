@@ -466,6 +466,10 @@
           "description": "Indicates whether the window will be on top of other Overwolf windows. Handle with care as topmost windows can negatively impact user experience.",
           "type": "boolean"
         },
+        "bottommost": {
+          "description": "Indicates whether the window will be on bottom of other Overwolf windows. Handle with care as bottommost windows can negatively impact user experience.",
+          "type": "boolean"
+        },
         "block_top_window_navigation": {
           "description": "Refrain from page-take-over by links",
           "type": "boolean"
