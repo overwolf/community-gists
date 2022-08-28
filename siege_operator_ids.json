@@ -186,6 +186,12 @@
    "ubisoft_id": "6:17"
  },
  {
+   "side": "atk", 
+   "operator_name": "Sens",
+   "overwolf_id": 29,
+   "ubisoft_id": "unknown"
+ },
+ {
    "side": "atk",
    "operator_name": "Recruit",
    "overwolf_id": 1,
