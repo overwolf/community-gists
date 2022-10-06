@@ -192,6 +192,12 @@
    "ubisoft_id": "unknown"
  },
  {
+   "side": "atk", 
+   "operator_name": "Grim",
+   "overwolf_id": 1558,
+   "ubisoft_id": "unknown"
+ },
+ {
    "side": "atk",
    "operator_name": "Recruit",
    "overwolf_id": 1,
