@@ -1,29 +1,20 @@
 {
   "title": "my first schema test for overwolf apps manifest",
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
-  "$id": "http://overwolf.com/schemas/myschema.json",
-  "required": [
-    "manifest_version",
-    "type",
-    "meta",
-    "data"
-  ],
+  "id": "http://overwolf.com/schemas/myschema.json",
+  "required": ["manifest_version", "type", "meta", "data"],
   "properties": {
     "manifest_version": {
       "type": "integer",
       "description": "Targets the manifest version you are working on. Currently there is only one version, therefore this value is always 1",
-      "const": 1,
+      "enum": [1],
       "additionalProperties": false
     },
     "type": {
       "type": "string",
       "description": "Declares the type of application. Can only be 'WebApp'",
-      "enum": [
-        "WebApp",
-        "Skin",
-        "GameEventProvider"
-      ],
+      "enum": ["WebApp", "Skin", "GameEventProvider"],
       "additionalProperties": false
     },
     "meta": {
@@ -121,10 +112,7 @@
     "data": {
       "description": "Extension data",
       "type": "object",
-      "required": [
-        "start_window",
-        "windows"
-      ],
+      "required": ["start_window", "windows"],
       "properties": {
         "windows": {
           "description": "A map from window names to window settings.",
@@ -288,9 +276,7 @@
     },
     "extension_window_data": {
       "type": "object",
-      "required": [
-        "file"
-      ],
+      "required": ["file"],
       "properties": {
         "file": {
           "description": "Points to the file to be loaded inside the window.",
@@ -300,6 +286,7 @@
           "description": "Allows you to control the behavior of an app window while in a `mouse-less` game state",
           "type": "string"
         },
+
         "background_optimization": {
           "description": "Enables JS engine background optimization. Default value = true.",
           "type": "boolean"
@@ -308,14 +295,17 @@
           "description": "This flag should be used with windows that have the focus_game_takeover: ReleaseOnHidden flag.",
           "type": "string"
         },
+
         "native_window": {
           "description": "Defines whether or not the window is a native window.",
           "type": "boolean"
         },
+
         "use_os_windowing": {
           "description": " Note: Should only be used with desktop_only windows.  1. This flag – when set to true, allows your window to: have a full-screen maximize when calling the overwolf.windows.maximize function allow your window to have a real (task bar) minimize when calling overwolf.windows.minimize",
           "type": "boolean"
         },
+
         "show_in_taskbar": {
           "description": "Define if the window is displayed in the Windows taskbar and alt-tab window selection menu.",
           "type": "boolean"
@@ -483,9 +473,7 @@
     },
     "hotkey": {
       "type": "object",
-      "required": [
-        "title"
-      ],
+      "required": ["title"],
       "properties": {
         "title": {
           "description": "Name of the hotkey as it will appear in the Hotkey tab in the settings.",
@@ -498,10 +486,7 @@
         "action-type": {
           "description": "Defines the behavior of the hotkey.",
           "type": "string",
-          "enum": [
-            "toggle",
-            "custom"
-          ]
+          "enum": ["toggle", "custom"]
         },
         "passthrough": {
           "description": "Defines the behavior of the hotkey.",
@@ -542,11 +527,7 @@
         "event": {
           "description": "The type name of the event.",
           "type": "string",
-          "enum": [
-            "GameLaunch",
-            "AllGamesLaunch",
-            "LaunchWithOverwolf"
-          ]
+          "enum": ["GameLaunch", "AllGamesLaunch", "LaunchWithOverwolf"]
         },
         "tracked": {
           "description": "Launch App when gameid is detected (even when not injected)",
