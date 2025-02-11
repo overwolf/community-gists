@@ -105,7 +105,7 @@
       "uniqueItems": true,
       "items": {
         "type": "string",
-        "pattern": "(VideoCaptureSettings|Web|Camera|Microphone|Logging|Extensions|Streaming|DesktopStreaming|Profile|Clipboard|Hotkeys|Media|GameInfo|GameControl|FileSystem|LogitechLed|LogitechArx|Tray|shutdown)"
+        "pattern": "(VideoCaptureSettings|Web|Camera|Microphone|Logging|Extensions|Streaming|DesktopStreaming|Profile|Clipboard|Hotkeys|Media|GameInfo|GameControl|FileSystem|LogitechLed|LogitechArx|Tray|Subscription|shutdown)"
       },
       "additionalProperties": false
     },
@@ -142,6 +142,19 @@
         "externally_connectable": {
           "description": "A definition of external URLs the web app should be able to access",
           "$ref": "#/definitions/extension_externally_connectable"
+        },
+        "url_protocol": {
+          "description": "A definition of the custom URL protocol to create a link to your app.",
+          "type": "object",
+          "properties": {
+            "schemes": {
+              "description": "A list of custom URL schemes the app uses",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
         },
         "protocol_override_domains": {
           "description": "Overwolf apps run under a custom url protocol and domain (overwolf-extension://[extension-id]). This means that protocol-relative urls will try to load from a the overwolf-extension protocol. Unless you want this to happen, you can use protocol_override_domains to override the relative protocol with a preferred one",
