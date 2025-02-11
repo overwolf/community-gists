@@ -188,6 +188,42 @@
             "type": "integer"
           }
         },
+        "game_targeting": {
+          "description": "An app can declare itself as targeted for one game or more.",
+          "type": "object",
+          "properties": {
+            "type": {
+              "description": "The type of game targeting. Can be: 'none', 'dedicated' or 'all'.",
+              "type": "string",
+              "enum": [
+                "none",
+                "dedicated",
+                "all"
+              ]
+            },
+            "game_ids": {
+              "description": "The list of game class IDs for which the app will launch.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "uninstall_window": {
+          "description": "Points to a local HTML file to be loaded inside the window.",
+          "type": "object",
+          "properties": {
+            "file": {
+              "description": "Points to a local HTML file to be loaded inside the window.",
+              "type": "string"
+            },
+            "required_runtime": {
+              "description": "Valid up to 60000 (1 minute). Default value is 10000 milliseconds (10 seconds)",
+              "type": "integer"
+            }
+          }
+        },
         "extra-objects": {
           "description": "Allows the access of custom plugin dlls",
           "type": "object",
@@ -224,7 +260,8 @@
           "description": "A custom user agent for the app to use when creating http requests. Note that using 'navigator.userAgent' will not return the custom user agent, but the default one.",
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "definitions": {
@@ -609,5 +646,6 @@
       },
       "additionalProperties": false
     }
-  }
+  },
+  "additionalProperties": false
 }
