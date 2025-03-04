@@ -259,6 +259,24 @@
         "user_agent": {
           "description": "A custom user agent for the app to use when creating http requests. Note that using 'navigator.userAgent' will not return the custom user agent, but the default one.",
           "type": "string"
+        },
+        "developer": {
+          "description": "Additional setting for developers.",
+          "type": "object",
+          "properties": {
+            "enable_auto_refresh": {
+              "description": "Enable auto App reloading when detecting files changes. default is true.",
+              "type": "boolean"
+            },
+            "reload_delay": {
+              "description": "Delay in milliseconds. When detecting file changes (for multiple changes).",
+              "type": "integer"
+            },
+            "filter": {
+              "description": "Filter files which will be tracked(.js;.html). Default value is “.” -> all files, but you can use several value like “.json;.html”",
+              "type": "string"
+            }
+          }
         }
       },
       "additionalProperties": false
