@@ -143,6 +143,24 @@
           "description": "A definition of external URLs the web app should be able to access",
           "$ref": "#/definitions/extension_externally_connectable"
         },
+        "request_referrer_force": {
+          "description": "Array of rules to forcefully set the HTTP Referer header for specific requests",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rule": {
+                "description": "The URL or pattern of the resource to match",
+                "type": "string"
+              },
+              "domain": {
+                "description": "The domain to be reported as the forced Referer header",
+                "type": "string"
+              }
+            },
+            "required": ["rule", "domain"]
+          }
+        },
         "url_protocol": {
           "description": "A definition of the custom URL protocol to create a link to your app.",
           "type": "object",
