@@ -46,6 +46,10 @@
           "description": "Who developed the app",
           "type": "string"
         },
+        "author_display": {
+          "description": "An author name override to display instead of the actual author name",
+          "type": "string"
+        },
         "version": {
           "description": "Version of your app",
           "$ref": "#/definitions/version_string"
@@ -92,6 +96,10 @@
           "description": "A relative path from the app folder to a png file. This is the window task bar icon and the window header. The icon dimensions should be 256x256 pixels.",
           "type": "string"
         },
+        "tray_icon": {
+          "description": "A relative path from the app folder to tray icon's ico file. This is the icon that will be used for the app in the tray. Defaults to `launcher_icon` if it is not defined",
+          "type": "string"
+        },
         "splash_image": {
           "description": "A relative path from the app folder to the splash image icon's png file. The image size should be 256x256px. If a this image is missing, Overwolf will use the `icon` image as a splash image ",
           "type": "string"
@@ -117,6 +125,10 @@
         "type": "string"
       },
       "additionalProperties": false
+    },
+    "max_rotation_log_files": {
+      "description": "Maximum number of rotated log files to keep.",
+      "type": "integer"
     },
     "data": {
       "description": "Extension data",
@@ -153,6 +165,10 @@
               "items": {
                 "type": "string"
               }
+            },
+            "scheme": {
+              "description": "A custom URL scheme the app uses (singular form).",
+              "type": "string"
             }
           }
         },
@@ -164,6 +180,27 @@
           "description": "Causes links in the app to be opened using the user's default browser or Overwolf's browser. Takes 'user' and 'overwolf' (case insensitive).",
           "type": "string",
           "pattern": "(user|overwolf)"
+        },
+        "request_referrer_force": {
+          "description": "Array of rules to forcefully set the HTTP Referer header for specific requests.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "rule",
+              "domain"
+            ],
+            "properties": {
+              "rule": {
+                "description": "The URL or pattern of the resource to match. This can be any kind of link (video, image, API, etc.).",
+                "type": "string"
+              },
+              "domain": {
+                "description": "The domain to be reported as the forced Referer header for the matching rule.",
+                "type": "string"
+              }
+            }
+          }
         },
         "enable_osr_acceleration": {
           "description": "Enable OSR/GPU acceleration if supported by this machine. Note that this flag is in beta and it may not function as expected in some machines. See also the optimize_accelerate_rendering flag.",
@@ -259,6 +296,47 @@
         "user_agent": {
           "description": "A custom user agent for the app to use when creating http requests. Note that using 'navigator.userAgent' will not return the custom user agent, but the default one.",
           "type": "string"
+        },
+        "enable_top_isolation": {
+          "description": "Enable iframe isolation (e.g. for Overwolf ads). Default value = true.",
+          "type": "boolean"
+        },
+        "enable_top_isolated_sites_console": {
+          "description": "Toggle printing of ads log to the console.",
+          "type": "boolean"
+        },
+        "disable_log_limit": {
+          "description": "Disable the log file 1000 lines limitation. Don't enable without Overwolf approval.",
+          "type": "boolean"
+        },
+        "disable_dt": {
+          "description": "Disable opening of the developer tools for the app.",
+          "type": "boolean"
+        },
+        "service_providers": {
+          "description": "Hosting app flexible data.",
+          "type": "object",
+          "patternProperties": {
+            ".*": {
+              "type": "object"
+            }
+          }
+        },
+        "disable_cleanup": {
+          "description": "If set to true, app local data will not be cleaned up after app uninstallation.",
+          "type": "boolean"
+        },
+        "process_name": {
+          "description": "Process name for the app.",
+          "type": "string"
+        },
+        "auto_relaunch_on_crash": {
+          "description": "Automatically relaunches the app if it crashes (up to 7 times).",
+          "type": "boolean"
+        },
+        "open_dev_tools": {
+          "description": "Used for debugging, automatically opens the dev tools when an app window opens.",
+          "type": "boolean"
         },
         "developer": {
           "description": "Additional setting for developers.",
@@ -528,12 +606,24 @@
           "description": "Indicates whether the window will be on top of other Overwolf windows. Handle with care as topmost windows can negatively impact user experience.",
           "type": "boolean"
         },
+        "bottommost": {
+          "description": "Indicates whether the window will be below other Overwolf windows.",
+          "type": "boolean"
+        },
         "block_top_window_navigation": {
           "description": "Refrain from page-take-over by links",
           "type": "boolean"
         },
         "override_on_update": {
           "description": "Indicates whether the window’s locally saved data should be overridden when the window’s size/location/opacity changes after a version update.",
+          "type": "boolean"
+        },
+        "open_dev_tools": {
+          "description": "Used for debugging, automatically opens the dev tools when the app window opens.",
+          "type": "boolean"
+        },
+        "show_background_layer": {
+          "description": "Ability to show black overlay when window is visible.",
           "type": "boolean"
         }
       },
@@ -620,6 +710,10 @@
           "description": "Launch App when gameid is detected (even when not injected)",
           "type": "boolean"
         },
+        "track_all_games": {
+          "description": "Only applicable when the 'tracked' property is set to true. Launches the app for all instances defined in the Gameslist, even those who are defined as 'Unsupported'.",
+          "type": "boolean"
+        },
         "event_data": {
           "description": "The event data.",
           "$ref": "#/definitions/launch_event"
@@ -631,6 +725,17 @@
         "include_launchers": {
           "description": "The app will be launched when game launcher is detected.",
           "type": "boolean"
+        }
+      },
+      "if": {
+        "properties": {
+          "track_all_games": { "const": true }
+        }
+      },
+      "then": {
+        "required": ["tracked"],
+        "properties": {
+          "tracked": { "const": true }
         }
       },
       "additionalProperties": false
