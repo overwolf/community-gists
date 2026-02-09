@@ -728,6 +728,7 @@
         }
       },
       "if": {
+        "required": ["track_all_games"],
         "properties": {
           "track_all_games": { "const": true }
         }
