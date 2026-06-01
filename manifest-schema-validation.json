@@ -1,0 +1,805 @@
+{
+    "title": "my first schema test for overwolf apps manifest",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "$id": "http://overwolf.com/schemas/myschema.json",
+    "required": [
+        "manifest_version",
+        "type",
+        "meta",
+        "data"
+    ],
+    "properties": {
+        "manifest_version": {
+            "type": "integer",
+            "description": "Targets the manifest version you are working on. Currently there is only one version, therefore this value is always 1",
+            "const": 1,
+            "additionalProperties": false
+        },
+        "type": {
+            "type": "string",
+            "description": "Declares the type of application. Can only be 'WebApp'",
+            "enum": [
+                "WebApp",
+                "Skin",
+                "GameEventProvider"
+            ],
+            "additionalProperties": false
+        },
+        "meta": {
+            "description": "The extension metadata",
+            "type": "object",
+            "required": [
+                "name",
+                "author",
+                "version",
+                "minimum-overwolf-version",
+                "description",
+                "icon"
+            ],
+            "properties": {
+                "name": {
+                    "description": "Name of your app",
+                    "type": "string"
+                },
+                "author": {
+                    "description": "Who developed the app",
+                    "type": "string"
+                },
+                "author_display": {
+                    "description": "An author name override to display instead of the actual author name",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "Version of your app",
+                    "$ref": "#/definitions/version_string"
+                },
+                "minimum-overwolf-version": {
+                    "description": "Minimum version of the Overwolf Client with which the app is compatible.",
+                    "$ref": "#/definitions/version_string"
+                },
+                "minimum-gep-version": {
+                    "description": ". Minimum version of the Overwolf Game Events Provider with which the app is compatible.",
+                    "$ref": "#/definitions/version_string"
+                },
+                "minimum-gs-version": {
+                    "description": ". Minimum version of the Overwolf Game Summary built-in app with which the app is compatible.",
+                    "$ref": "#/definitions/version_string"
+                },
+                "description": {
+                    "description": "The description of your app on the Appstore tile",
+                    "type": "string",
+                    "maxLength": 180
+                },
+                "dock_button_title": {
+                    "description": "Short name of your app. Provide a short title that will fit in the dock button area",
+                    "type": "string",
+                    "maxLength": 18
+                },
+                "icon": {
+                    "description": "A relative path from the app folder to the icon's png file.This is the mouse-over (multi-colored) version of the icon that will be displayed on the Overwolf dock. The icon dimensions should be 256×256 pixels.",
+                    "type": "string"
+                },
+                "icon_gray": {
+                    "description": "A relative path from the app folder to the icon's png file. This is the grayscale version of the icon that will be displayed on the Overwolf dock. The icon dimensions should be 256×256 pixels.",
+                    "type": "string"
+                },
+                "store_icon": {
+                    "description": "A relative path from the app folder to a png file. This is the icon that will appear in the store library. The icon dimensions should be 200×200 pixels.",
+                    "type": "string"
+                },
+                "launcher_icon": {
+                    "description": "A relative path from the app folder to the desktop shortcut icon's ico file..",
+                    "type": "string"
+                },
+                "window_icon": {
+                    "description": "A relative path from the app folder to a png file. This is the window task bar icon and the window header. The icon dimensions should be 256x256 pixels.",
+                    "type": "string"
+                },
+                "tray_icon": {
+                    "description": "A relative path from the app folder to tray icon's ico file. This is the icon that will be used for the app in the tray. Defaults to `launcher_icon` if it is not defined",
+                    "type": "string"
+                },
+                "splash_image": {
+                    "description": "A relative path from the app folder to the splash image icon's png file. The image size should be 256x256px. If a this image is missing, Overwolf will use the `icon` image as a splash image ",
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "permissions": {
+            "description": "An array of permissions that the app requires.",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+                "type": "string",
+                "pattern": "(VideoCaptureSettings|Web|Camera|Microphone|Logging|Extensions|Streaming|DesktopStreaming|Profile|Clipboard|Hotkeys|Media|GameInfo|GameControl|FileSystem|LogitechLed|LogitechArx|Tray|Subscription|shutdown)"
+            },
+            "additionalProperties": false
+        },
+        "dependencies": {
+            "description": "An array of unique IDs of other extensions and services that this extension depends on.",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            },
+            "additionalProperties": false
+        },
+        "max_rotation_log_files": {
+            "description": "Maximum number of rotated log files to keep.",
+            "type": "integer"
+        },
+        "data": {
+            "description": "Extension data",
+            "type": "object",
+            "required": [
+                "start_window",
+                "windows"
+            ],
+            "properties": {
+                "windows": {
+                    "description": "A map from window names to window settings.",
+                    "type": "object",
+                    "patternProperties": {
+                        ".*": {
+                            "$ref": "#/definitions/extension_window_data"
+                        }
+                    }
+                },
+                "start_window": {
+                    "description": "The name of the window (from the `windows` list) initially loaded when the app starts.",
+                    "type": "string"
+                },
+                "externally_connectable": {
+                    "description": "A definition of external URLs the web app should be able to access",
+                    "$ref": "#/definitions/extension_externally_connectable"
+                },
+                "logging": {
+                    "description": "Configures domain permissions, connectivity, and blocking behaviors for app diagnostics and logging.",
+                    "type": "object",
+                    "properties": {
+                        "allowed_domains": {
+                            "description": "Array of domain strings permitted to transmit log files or telemetry.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "ignore_externally_connectable": {
+                            "description": "Ignores external connectable configurations during logging events.",
+                            "type": "boolean"
+                        },
+                        "disable_blocking": {
+                            "description": "Prevents blocking behaviors from disrupting log submission pipelines.",
+                            "type": "boolean"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "url_protocol": {
+                    "description": "A definition of the custom URL protocol to create a link to your app.",
+                    "type": "object",
+                    "properties": {
+                        "schemes": {
+                            "description": "A list of custom URL schemes the app uses",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "scheme": {
+                            "description": "A custom URL scheme the app uses (singular form).",
+                            "type": "string"
+                        }
+                    }
+                },
+                "protocol_override_domains": {
+                    "description": "Overwolf apps run under a custom url protocol and domain (overwolf-extension://[extension-id]). This means that protocol-relative urls will try to load from a the overwolf-extension protocol. Unless you want this to happen, you can use protocol_override_domains to override the relative protocol with a preferred one",
+                    "type": "object"
+                },
+                "force_browser": {
+                    "description": "Causes links in the app to be opened using the user's default browser or Overwolf's browser. Takes 'user' and 'overwolf' (case insensitive).",
+                    "type": "string",
+                    "pattern": "(user|overwolf)"
+                },
+                "request_referrer_force": {
+                    "description": "Array of rules to forcefully set the HTTP Referer header for specific requests.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "rule",
+                            "domain"
+                        ],
+                        "properties": {
+                            "rule": {
+                                "description": "The URL or pattern of the resource to match. This can be any kind of link (video, image, API, etc.).",
+                                "type": "string"
+                            },
+                            "domain": {
+                                "description": "The domain to be reported as the forced Referer header for the matching rule.",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "enable_osr_acceleration": {
+                    "description": "Enable OSR/GPU acceleration if supported by this machine. Note that this flag is in beta and it may not function as expected in some machines. See also the optimize_accelerate_rendering flag.",
+                    "type": "boolean"
+                },
+                "plugins": {
+                    "description": "A list of file references to plugins that are provided with the web app. The references should be relative paths from the app folder.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "channel-id": {
+                    "description": "A unique identifier (you will probably need to make sure the id is unique with Overwolf) that is used to communicate with your in-game plugin that is injected into the game",
+                    "type": "string"
+                },
+                "game_events": {
+                    "description": "A list of game ids for which game events are required.",
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "game_targeting": {
+                    "description": "An app can declare itself as targeted for one game or more.",
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "description": "The type of game targeting. Can be: 'none', 'dedicated' or 'all'.",
+                            "type": "string",
+                            "enum": [
+                                "none",
+                                "dedicated",
+                                "all"
+                            ]
+                        },
+                        "game_ids": {
+                            "description": "The list of game class IDs for which the app will launch.",
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                },
+                "uninstall_window": {
+                    "description": "Points to a local HTML file to be loaded inside the window.",
+                    "type": "object",
+                    "properties": {
+                        "file": {
+                            "description": "Points to a local HTML file to be loaded inside the window.",
+                            "type": "string"
+                        },
+                        "required_runtime": {
+                            "description": "Valid up to 60000 (1 minute). Default value is 10000 milliseconds (10 seconds)",
+                            "type": "integer"
+                        }
+                    }
+                },
+                "extra-objects": {
+                    "description": "Allows the access of custom plugin dlls",
+                    "type": "object",
+                    "patternProperties": {
+                        ".*": {
+                            "$ref": "#/definitions/extra_object"
+                        }
+                    }
+                },
+                "hotkeys": {
+                    "description": "The map between the hotkey feature name and it's settings.",
+                    "type": "object",
+                    "patternProperties": {
+                        ".*": {
+                            "$ref": "#/definitions/hotkey"
+                        }
+                    }
+                },
+                "content_scripts": {
+                    "description": "A list of content scripts to be loaded for specific windows. For instance, for this json, when loading the index window, myscript.js will be loaded and when encountring https://google.com, mystyles.css and myscript2.js will be loaded",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/content_script"
+                    }
+                },
+                "launch_events": {
+                    "description": "A list of events causing the app to launch. It is enough that one of the events will occur to launch the app.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/launch_event_settings"
+                    }
+                },
+                "user_agent": {
+                    "description": "A custom user agent for the app to use when creating http requests. Note that using 'navigator.userAgent' will not return the custom user agent, but the default one.",
+                    "type": "string"
+                },
+                "enable_top_isolation": {
+                    "description": "Enable iframe isolation (e.g. for Overwolf ads). Default value = true.",
+                    "type": "boolean"
+                },
+                "enable_top_isolated_sites_console": {
+                    "description": "Toggle printing of ads log to the console.",
+                    "type": "boolean"
+                },
+                "disable_log_limit": {
+                    "description": "Disable the log file 1000 lines limitation. Don't enable without Overwolf approval.",
+                    "type": "boolean"
+                },
+                "disable_dt": {
+                    "description": "Disable opening of the developer tools for the app.",
+                    "type": "boolean"
+                },
+                "service_providers": {
+                    "description": "Hosting app flexible data.",
+                    "type": "object",
+                    "patternProperties": {
+                        ".*": {
+                            "type": "object"
+                        }
+                    }
+                },
+                "disable_cleanup": {
+                    "description": "If set to true, app local data will not be cleaned up after app uninstallation.",
+                    "type": "boolean"
+                },
+                "process_name": {
+                    "description": "Process name for the app.",
+                    "type": "string"
+                },
+                "auto_relaunch_on_crash": {
+                    "description": "Automatically relaunches the app if it crashes (up to 7 times).",
+                    "type": "boolean"
+                },
+                "open_dev_tools": {
+                    "description": "Used for debugging, automatically opens the dev tools when an app window opens.",
+                    "type": "boolean"
+                },
+                "developer": {
+                    "description": "Additional setting for developers.",
+                    "type": "object",
+                    "properties": {
+                        "enable_auto_refresh": {
+                            "description": "Enable auto App reloading when detecting files changes. default is true.",
+                            "type": "boolean"
+                        },
+                        "reload_delay": {
+                            "description": "Delay in milliseconds. When detecting file changes (for multiple changes).",
+                            "type": "integer"
+                        },
+                        "filter": {
+                            "description": "Filter files which will be tracked(.js;.html). Default value is “.” -> all files, but you can use several value like “.json;.html”",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "definitions": {
+        "glob_pattern": {
+            "type": "string",
+            "format": "glob-pattern"
+        },
+        "icon": {
+            "$ref": "#/definitions/uri"
+        },
+        "match_pattern": {
+            "type": "string",
+            "format": "match-pattern",
+            "pattern": "^((\\*|http|https|file|ftp|chrome-extension):\\/\\/(\\*|\\*\\.[^\\/\\*]+|[^\\/\\*]+)?(\\/.*))|<all_urls>$"
+        },
+        "mime_type": {
+            "type": "string",
+            "format": "mime-type",
+            "pattern": "^(?:application|audio|image|message|model|multipart|text|video)\\/[-+.\\w]+$"
+        },
+        "page": {
+            "$ref": "#/definitions/uri"
+        },
+        "permissions": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+                "type": "string",
+                "format": "permission"
+            }
+        },
+        "scripts": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "$ref": "#/definitions/uri"
+            }
+        },
+        "uri": {
+            "type": "string",
+            "format": "uri"
+        },
+        "version_string": {
+            "type": "string",
+            "pattern": "^(?:\\d{1,5}\\.){0,3}\\d{1,5}$"
+        },
+        "size": {
+            "type": "object",
+            "properties": {
+                "width": {
+                    "description": "Defines the width in pixels.",
+                    "type": "integer"
+                },
+                "height": {
+                    "description": "Defines the height in pixels.",
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": false
+        },
+        "point": {
+            "type": "object",
+            "properties": {
+                "top": {
+                    "description": "Defines the position in the Y axis from the top in pixels.",
+                    "type": "integer"
+                },
+                "left": {
+                    "description": "Defines the position in the X axis from the left in pixels.",
+                    "type": "integer"
+                }
+            }
+        },
+        "extension_window_data": {
+            "type": "object",
+            "required": [
+                "file"
+            ],
+            "properties": {
+                "file": {
+                    "description": "Points to the file to be loaded inside the window.",
+                    "type": "string"
+                },
+                "focus_game_takeover": {
+                    "description": "Allows you to control the behavior of an app window while in a `mouse-less` game state",
+                    "type": "string"
+                },
+                "background_optimization": {
+                    "description": "Enables JS engine background optimization. Default value = true.",
+                    "type": "boolean"
+                },
+                "focus_game_takeover_release_hotkey": {
+                    "description": "This flag should be used with windows that have the focus_game_takeover: ReleaseOnHidden flag.",
+                    "type": "string"
+                },
+                "native_window": {
+                    "description": "Defines whether or not the window is a native window.",
+                    "type": "boolean"
+                },
+                "use_os_windowing": {
+                    "description": " Note: Should only be used with desktop_only windows.  1. This flag – when set to true, allows your window to: have a full-screen maximize when calling the overwolf.windows.maximize function allow your window to have a real (task bar) minimize when calling overwolf.windows.minimize",
+                    "type": "boolean"
+                },
+                "show_in_taskbar": {
+                    "description": "Define if the window is displayed in the Windows taskbar and alt-tab window selection menu.",
+                    "type": "boolean"
+                },
+                "transparent": {
+                    "description": "Indicates whether the window will be transparent and borderless. If set to false a standard Overwolf window will be created",
+                    "type": "boolean"
+                },
+                "resizable": {
+                    "description": "Indicates whether the window can be resized.",
+                    "type": "boolean"
+                },
+                "is_background_page": {
+                    "description": "Should be used with main hidden / background window. When set to 'true', the window will not be visible (for better performance)",
+                    "type": "boolean"
+                },
+                "grab_focus_on_desktop": {
+                    "description": "Indicates whether the window will grab the focus automatically when it opens, or leave the focus untouched. Default value = true. Only relevant when in the desktop – for in-game focus behavior, use grab_keyboard_focus.",
+                    "type": "boolean"
+                },
+                "popup_blocker": {
+                    "description": "Prevents new browser windows being opened automatically using script. Default value = false",
+                    "type": "boolean"
+                },
+                "mute": {
+                    "description": "Mute sounds in window",
+                    "type": "boolean"
+                },
+                "disable_hardware_acceleration": {
+                    "description": "disable GPU hardware accelerationw for native window",
+                    "type": "boolean"
+                },
+                "mute_excluded_hosts": {
+                    "description": "Excludes hosts list so a stream from these hosts origins will not get muted even if the",
+                    "type": "array"
+                },
+                "show_minimize": {
+                    "description": "Indicates whether to show the window minimize button. Only relevant when not in transparent mode.",
+                    "type": "boolean"
+                },
+                "clickthrough": {
+                    "description": "Indicates whether the window will not receive clicks in-game, instead, the clicks will be passed on to the game.",
+                    "type": "boolean"
+                },
+                "style": {
+                    "description": "Mouse and keyboard input will pass to the window AND to the game (no input blocking)",
+                    "type": "string"
+                },
+                "disable_rightclick": {
+                    "description": "When set to true, disable right clicks entirely for this window.",
+                    "type": "boolean"
+                },
+                "forcecapture": {
+                    "description": "Indicates whether this window should always be included in recordings, overriding any other setting.",
+                    "type": "boolean"
+                },
+                "keep_window_location": {
+                    "description": "Window location won't be changed when game focus is changed",
+                    "type": "boolean"
+                },
+                "show_maximize": {
+                    "description": "Enables window maximize button. Relevant only for the standard Overwolf window (`transparent`: false) . Default value = false",
+                    "type": "boolean"
+                },
+                "disable_blur": {
+                    "description": "Causes the app's window to never lose focus, so the window.onblur event is never triggered. Default value = false",
+                    "type": "boolean"
+                },
+                "allow_local_file_access": {
+                    "description": "Allows access to local files that are not located in your app's (extension) folder. Default value = false",
+                    "type": "boolean"
+                },
+                "is_alt_f4_blocked": {
+                    "description": "Blocks the user from closing the window by using Alt+F4. You can register to the overwolf.windows.OnAltF4Blocked event to be noticed when a block was triggered",
+                    "type": "boolean"
+                },
+                "dev_tools_window_style": {
+                    "description": "Opens developer tools in dedicated window.",
+                    "type": "boolean"
+                },
+                "debug_url": {
+                    "description": "For local-server debugging (like react apps). You can use this field to set the localhost:port URL. You must have a local web server installed on your machine. Valid only when loading unpacked extensions. Valid only with localhost or 127.0.0.1",
+                    "type": "string"
+                },
+                "optimize_accelerate_rendering": {
+                    "description": "Valid only for transparent windows. Valid only if enable_osr_acceleration is on",
+                    "type": "boolean"
+                },
+                "disable_auto_dpi_sizing": {
+                    "description": "Disable the DPI Aware behavior of native windows",
+                    "type": "boolean"
+                },
+                "restrict_to_game_bounds": {
+                    "description": "A window will always stay inside the game window while dragging",
+                    "type": "boolean"
+                },
+                "show_only_on_stream": {
+                    "description": "Indicates whether this window is visible only in streams (not visible to the streamer), overriding any other setting.",
+                    "type": "boolean"
+                },
+                "ignore_keyboard_events": {
+                    "description": "Indicates whether the window will not receive keyboard events. Instead, the keyboard events will be passed on to the game.",
+                    "type": "boolean"
+                },
+                "enable_top_isolation": {
+                    "description": "Enable iframe isolation (should be used with Overwolf ads, please contact us before adding it to your app), Default value = true",
+                    "type": "boolean"
+                },
+                "in_game_only": {
+                    "description": "Indicates whether the window will be visible only in game and not on the desktop.",
+                    "type": "boolean"
+                },
+                "desktop_only": {
+                    "description": "Indicates whether the window will be visible only on the desktop and not while in game.",
+                    "type": "boolean"
+                },
+                "disable_restore_animation": {
+                    "description": "Indicates whether the window will animate on minimize/restore while in game.",
+                    "type": "boolean"
+                },
+                "grab_keyboard_focus": {
+                    "description": "Indicates whether the window will grab the keyboard focus automatically when it opens, or leave the keyboard focus untouched.",
+                    "type": "boolean"
+                },
+                "size": {
+                    "description": "Defines the size of the window in pixels.",
+                    "$ref": "#/definitions/size"
+                },
+                "min_size": {
+                    "description": "Defines the minimum size of the window in pixels.",
+                    "$ref": "#/definitions/size"
+                },
+                "max_size": {
+                    "description": "Defines the maximum size of the window in pixels.",
+                    "$ref": "#/definitions/size"
+                },
+                "start_position": {
+                    "description": "The default start position of the window in pixels from the top left corner.",
+                    "$ref": "#/definitions/point"
+                },
+                "topmost": {
+                    "description": "Indicates whether the window will be on top of other Overwolf windows. Handle with care as topmost windows can negatively impact user experience.",
+                    "type": "boolean"
+                },
+                "bottommost": {
+                    "description": "Indicates whether the window will be below other Overwolf windows.",
+                    "type": "boolean"
+                },
+                "block_top_window_navigation": {
+                    "description": "Refrain from page-take-over by links",
+                    "type": "boolean"
+                },
+                "override_on_update": {
+                    "description": "Indicates whether the window’s locally saved data should be overridden when the window’s size/location/opacity changes after a version update.",
+                    "type": "boolean"
+                },
+                "open_dev_tools": {
+                    "description": "Used for debugging, automatically opens the dev tools when the app window opens.",
+                    "type": "boolean"
+                },
+                "show_background_layer": {
+                    "description": "Ability to show black overlay when window is visible.",
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "extension_externally_connectable": {
+            "type": "object",
+            "properties": {
+                "matches": {
+                    "description": "Array of web page URL patterns to match with an external server URL. Use star (*) in place of subdomain to allow access to all subdomains.",
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false
+        },
+        "hotkey": {
+            "type": "object",
+            "required": [
+                "title"
+            ],
+            "properties": {
+                "title": {
+                    "description": "Name of the hotkey as it will appear in the Hotkey tab in the settings.",
+                    "type": "string"
+                },
+                "default": {
+                    "description": "The default key combination.",
+                    "type": "string"
+                },
+                "action-type": {
+                    "description": "Defines the behavior of the hotkey.",
+                    "type": "string",
+                    "enum": [
+                        "toggle",
+                        "custom"
+                    ]
+                },
+                "passthrough": {
+                    "description": "Defines the behavior of the hotkey.",
+                    "type": "boolean"
+                },
+                "hold": {
+                    "description": "Defines whether this hotkey is meant to invoke an action while being held.",
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "content_script": {
+            "type": "object",
+            "properties": {
+                "windows": {
+                    "description": "The list of windows for which to apply this content script.",
+                    "type": "array"
+                },
+                "matches": {
+                    "description": "The list of urls for which to apply this content script.",
+                    "type": "array"
+                },
+                "css": {
+                    "description": "The list of css files to be applied in this content script..",
+                    "type": "array"
+                },
+                "js": {
+                    "description": "The list of js files to be applied in this content script.",
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false
+        },
+        "launch_event_settings": {
+            "type": "object",
+            "properties": {
+                "event": {
+                    "description": "The type name of the event.",
+                    "type": "string",
+                    "enum": [
+                        "GameLaunch",
+                        "AllGamesLaunch",
+                        "LaunchWithOverwolf"
+                    ]
+                },
+                "tracked": {
+                    "description": "Launch App when gameid is detected (even when not injected)",
+                    "type": "boolean"
+                },
+                "track_all_games": {
+                    "description": "Only applicable when the 'tracked' property is set to true. Launches the app for all instances defined in the Gameslist, even those who are defined as 'Unsupported'.",
+                    "type": "boolean"
+                },
+                "event_data": {
+                    "description": "The event data.",
+                    "$ref": "#/definitions/launch_event"
+                },
+                "start_minimized": {
+                    "description": "\tThe app's main window will start minimized.",
+                    "type": "boolean"
+                },
+                "include_launchers": {
+                    "description": "The app will be launched when game launcher is detected.",
+                    "type": "boolean"
+                }
+            },
+            "if": {
+                "required": [
+                    "track_all_games"
+                ],
+                "properties": {
+                    "track_all_games": {
+                        "const": true
+                    }
+                }
+            },
+            "then": {
+                "required": [
+                    "tracked"
+                ],
+                "properties": {
+                    "tracked": {
+                        "const": true
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "launch_event": {
+            "type": "object",
+            "properties": {
+                "game_ids": {
+                    "description": "The list of game class IDs for which the app will launch.",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "wait_for_stable_framerate": {
+                    "description": "The app won't start until the game's framerate will stabilize around or above the stated framerate.",
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": false
+        },
+        "extra_object": {
+            "type": "object",
+            "properties": {
+                "file": {
+                    "type": "string"
+                },
+                "class": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}
