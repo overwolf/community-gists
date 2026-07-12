@@ -576,6 +576,10 @@
                     "description": "Disable the DPI Aware behavior of native windows",
                     "type": "boolean"
                 },
+                "dpi_unaware": {
+                    "description": "Manage in-game windows without DPI calculations. Default value = false",
+                    "type": "boolean"
+                },
                 "restrict_to_game_bounds": {
                     "description": "A window will always stay inside the game window while dragging",
                     "type": "boolean"
